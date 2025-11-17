@@ -16,10 +16,10 @@ const chatLimiter = rateLimit({
   legacyHeaders: false
 });
 
-var usersRouter = require('./routes/users');
+var usersRouter = require('./disprojekt2025/routes/users');
 var session = require('express-session');
-var authRouter = require('./routes/auth');
-var chatRouter = require('./routes/deepseek'); // Skift til deepseek
+var authRouter = require('./disprojekt2025/routes/auth');
+var chatRouter = require('./disprojekt2025/routes/deepseek'); // Skift til deepseek
 require('dotenv').config();
 var app = express();
 
