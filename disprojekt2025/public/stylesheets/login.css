@@ -1,0 +1,120 @@
+/*
+  Login page styling inspired by the provided screenshot (dark forest green + neon yellow).
+  Non-intrusive: works with existing markup in public/login.html
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&display=swap');
+
+:root {
+  --bg: #081a13;              /* deep forest green */
+  --bg-elev: #0c241a;         /* slightly lighter for elements */
+  --accent: #f1ff8b;          /* neon yellow */
+  --accent-weak: rgba(241, 255, 139, 0.35);
+  --text: #e9f7d0;            /* soft light text */
+  --ink: #0c241a;             /* dark ink for light CTA */
+  --ring: rgba(241, 255, 139, 0.2);
+  --radius-pill: 999px;
+  --shadow-1: 0 0 0 2px var(--accent-weak), 0 8px 30px rgba(0,0,0,0.35);
+}
+
+* { box-sizing: border-box; }
+
+html, body { height: 100%; }
+
+body {
+  margin: 0;
+  font-family: 'Space Grotesk', system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, 'Helvetica Neue', Arial, sans-serif;
+  color: var(--text);
+  background: radial-gradient(1200px 600px at 70% 10%, #0d2c20 0%, var(--bg) 45%) fixed,
+              radial-gradient(900px 500px at 10% 80%, #0b271d 0%, var(--bg) 45%) fixed,
+              var(--bg);
+  display: grid;
+  place-items: center;
+  padding: 32px 16px;
+}
+
+#loginForm {
+  width: 100%;
+  max-width: 420px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0));
+  border: 1px solid var(--accent-weak);
+  backdrop-filter: blur(3px);
+  border-radius: 24px;
+  padding: 28px;
+  box-shadow: var(--shadow-1);
+}
+
+#loginForm label {
+  display: block;
+  margin: 12px 14px 6px;
+  color: var(--accent);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-transform: lowercase;
+}
+
+#loginForm input[type="text"],
+#loginForm input[type="password"] {
+  appearance: none;
+  width: 100%;
+  height: 52px;
+  padding: 0 18px;
+  border-radius: var(--radius-pill);
+  border: 1.5px solid var(--accent-weak);
+  background: rgba(255, 255, 255, 0.02);
+  color: var(--text);
+  font-size: 16px;
+  transition: border-color .2s ease, box-shadow .2s ease, background .2s ease;
+}
+
+#loginForm input::placeholder { color: rgba(233, 247, 208, 0.6); }
+
+#loginForm input:hover {
+  border-color: rgba(241, 255, 139, 0.6);
+}
+
+#loginForm input:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 6px var(--ring);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+#loginForm button[type="submit"] {
+  margin-top: 20px;
+  width: 100%;
+  height: 54px;
+  border: 1.5px solid var(--accent);
+  border-radius: var(--radius-pill);
+  background: var(--accent);
+  color: var(--ink);
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 1;
+  cursor: pointer;
+  transition: transform .06s ease, box-shadow .2s ease, filter .2s ease;
+  box-shadow: 0 10px 24px rgba(241, 255, 139, 0.18);
+}
+
+#loginForm button[type="submit"]:hover {
+  filter: brightness(0.98) saturate(1.05);
+}
+
+#loginForm button[type="submit"]:active {
+  transform: translateY(1px);
+}
+
+/* Micro layout spacing */
+#loginForm input + label { margin-top: 14px; }
+
+/* Small helper text style (future proofing) */
+.help {
+  margin: 10px 16px 0;
+  color: rgba(233, 247, 208, 0.75);
+  font-size: 13px;
+}
+
+/* Mobile tweaks */
+@media (max-width: 420px) {
+  #loginForm { padding: 22px; }
+}
