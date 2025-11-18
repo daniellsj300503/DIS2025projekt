@@ -1,0 +1,105 @@
+/* Index landing page – mørk grøn + neon gul tema */
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&display=swap');
+
+:root {
+  --bg: #081a13;
+  --bg-panel: #0c241a;
+  --accent: #f1ff8b;
+  --accent-weak: rgba(241,255,139,0.28);
+  --text: #e9f7d0;
+  --ink: #0c241a;
+  --ring: rgba(241,255,139,0.18);
+  --radius-pill: 999px;
+  --shadow-panel: 0 0 0 2px var(--accent-weak), 0 12px 34px rgba(0,0,0,0.45);
+}
+
+* { box-sizing:border-box; margin:0; padding:0; }
+html, body { height:100%; }
+body {
+  font-family: 'Space Grotesk', system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  background: radial-gradient(1100px 650px at 80% 15%, #0d2c20 0%, var(--bg) 48%) fixed,
+              radial-gradient(900px 500px at 15% 85%, #0b271d 0%, var(--bg) 55%) fixed,
+              var(--bg);
+  color: var(--text);
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:38px;
+  padding:54px 26px 80px;
+}
+
+h1 {
+  font-size: clamp(2.4rem, 6vw, 4rem);
+  font-weight:700;
+  letter-spacing:.5px;
+  color: var(--accent);
+  text-shadow:0 6px 28px rgba(241,255,139,0.15);
+}
+
+.actions-wrapper {
+  width:100%;
+  max-width:980px;
+  display:grid;
+  gap:28px;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+}
+
+.card { 
+  background: linear-gradient(175deg, rgba(255,255,255,0.035), rgba(255,255,255,0) 70%);
+  border:1px solid var(--accent-weak);
+  border-radius:28px;
+  padding:28px 26px 26px;
+  box-shadow: var(--shadow-panel);
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+  gap:18px;
+  min-height:180px;
+  position:relative;
+  overflow:hidden;
+  transition: border-color .3s, transform .25s;
+}
+.card::before { content:""; position:absolute; inset:0; background:radial-gradient(circle at 85% 20%, rgba(241,255,139,0.12), transparent 60%); pointer-events:none; }
+.card:hover { border-color: var(--accent); transform:translateY(-4px); }
+.card p { font-size:18px; font-weight:600; color: var(--accent); text-transform: lowercase; }
+
+.card button {
+  background: var(--accent);
+  color: var(--ink);
+  font-weight:700;
+  font-size:16px;
+  border:1.5px solid var(--accent);
+  border-radius: var(--radius-pill);
+  padding:14px 28px;
+  cursor:pointer;
+  box-shadow:0 10px 24px rgba(241,255,139,0.2);
+  transition: filter .25s, transform .08s;
+}
+.card button:hover { filter:brightness(.97) saturate(1.05); }
+.card button:active { transform:translateY(1px); }
+
+/* Specific boxes (hook into existing classes) */
+.opretkontoboks, .loginboks, .logudboks { composes: card; }
+/* Fallback for environments uden CSS Modules – dupliker regler */
+.opretkontoboks, .loginboks, .logudboks { 
+  background: linear-gradient(175deg, rgba(255,255,255,0.035), rgba(255,255,255,0) 70%);
+  border:1px solid var(--accent-weak);
+  border-radius:28px;
+  padding:28px 26px 26px;
+  box-shadow: var(--shadow-panel);
+  display:flex;
+  flex-direction:column;
+  gap:18px;
+  min-height:180px;
+  position:relative;
+  overflow:hidden;
+  transition:border-color .3s, transform .25s;
+}
+.opretkontoboks:hover, .loginboks:hover, .logudboks:hover { border-color: var(--accent); transform:translateY(-4px); }
+.opretkontoboks p, .loginboks p, .logudboks p { font-size:18px; font-weight:600; color: var(--accent); text-transform: lowercase; }
+.opretkontoboks button, .loginboks button, .logudboks button { background: var(--accent); color: var(--ink); font-weight:700; font-size:16px; border:1.5px solid var(--accent); border-radius: var(--radius-pill); padding:14px 28px; cursor:pointer; box-shadow:0 10px 24px rgba(241,255,139,0.2); transition: filter .25s, transform .08s; }
+.opretkontoboks button:hover, .loginboks button:hover, .logudboks button:hover { filter:brightness(.97) saturate(1.05); }
+.opretkontoboks button:active, .loginboks button:active, .logudboks button:active { transform:translateY(1px); }
+
+/* Responsive */
+@media (max-width:600px){ body{ padding:42px 20px 70px; gap:32px; } h1{ font-size:2.4rem; } .card{ min-height:160px; } }
