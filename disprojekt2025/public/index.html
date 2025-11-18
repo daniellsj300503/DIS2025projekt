@@ -4,20 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>forside</title>
+    <link rel="stylesheet" href="/stylesheets/index.css">
 </head>
 <body>
     <h1>understories</h1>
-    <div class="opretkontoboks">
-        <p>opret konto</p>
-        <button onclick="window.location.href='opretbruger.html'">opret konto</button>
-    </div>
-    <div class="loginboks">
-        <p>log ind</p>
-        <button onclick="window.location.href='login.html'">login</button>
-    </div>
-    <div class="logudboks">
-        <p>log ud</p>
-        <button onclick="logout()">log ud</button>
+    <div class="actions-wrapper">
+        <div class="opretkontoboks">
+            <p>opret konto</p>
+            <button onclick="window.location.href='opretbruger.html'">opret konto</button>
+        </div>
+        <div class="loginboks">
+            <p>log ind</p>
+            <button onclick="window.location.href='login.html'">login</button>
+        </div>
+        <div class="logudboks">
+            <p>log ud</p>
+            <button onclick="logout()">log ud</button>
+        </div>
     </div>
     <script src="/javascripts/scripts.js"></script>
 </body>
